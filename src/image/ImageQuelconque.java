@@ -57,81 +57,21 @@ public abstract class ImageQuelconque {
         return nombre;
     }
 
-    public ImageGrise inverser() {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y, this.pointEn(x,y).inverser());
-        return result;
-    }
+    public abstract ImageGrise inverser();
 
-    public ImageGrise eclaircir() {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y, this.pointEn(x,y).eclaircir());
-        return result;
-    }
+    public abstract ImageGrise eclaircir();
 
-    public ImageGrise assombrir() {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y, this.pointEn(x,y).assombrir());
-        return result;
-    }
+    public abstract ImageGrise assombrir();
 
-    public ImageGrise dupliquer() {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y, this.pointEn(x,y));
-        return result;
-    }
+    public abstract ImageGrise dupliquer();
 
-    public ImageGrise ajouter(ImageGrise img) {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        if (this.incompatible(img))
-            return result;
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y,
-                        this.pointEn(x,y).ajouter(img.pointEn(x,y)));
-        return result;
-    }
+    public abstract ImageGrise ajouter(ImageGrise img);
 
-    public ImageGrise soustraire(ImageGrise img) {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        if (this.incompatible(img))
-            return result;
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y,
-                        this.pointEn(x,y).soustraire(img.pointEn(x,y)));
-        return result;
-    }
+    public abstract ImageGrise soustraire(ImageGrise img);
 
-    public ImageGrise XOR(ImageGrise img) {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        if (this.incompatible(img))
-            return result;
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                result.definirPoint(x, y,
-                        this.pointEn(x,y).XOR(img.pointEn(x,y)));
-        return result;
-    }
+    public abstract ImageGrise XOR(ImageGrise img);
 
-    public ImageGrise intersection(ImageGrise img) {
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        if (this.incompatible(img))
-            return result;
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++)
-                if (this.pointEn(x,y).equals(img.pointEn(x,y)))
-                    result.definirPoint(x, y, this.pointEn(x,y));
-        return result;
-    }
+    public abstract ImageGrise intersection(ImageGrise img);
 
     public String toString() {
         String s = largeur + "x" + hauteur;
@@ -151,20 +91,7 @@ public abstract class ImageQuelconque {
         return NiveauGris.deNiveau((int)(((double) s) / (largeur * hauteur)));
     }
 
-    public ImageGrise augmenterContraste() {
-        NiveauGris courant, moyen;
-        ImageGrise result = new ImageDict(largeur, hauteur);
-        moyen = this.niveauMoyen();
-        for (int y=0; y<hauteur; y++)
-            for (int x=0; x<largeur; x++) {
-                courant = this.pointEn(x, y);
-                if (courant.compareTo(moyen) > 0)
-                    result.definirPoint(x, y, courant.assombrir());
-                else
-                    result.definirPoint(x, y, courant.eclaircir());
-            }
-        return result;
-    }
+    public abstract ImageGrise augmenterContraste();
 
 
 
