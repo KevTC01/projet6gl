@@ -25,7 +25,6 @@ public abstract class ImageDictCom extends ImageQuelconque{
 
     }
 
-
     @Override
     public abstract ImageGrise eclaircir();
 
@@ -39,16 +38,16 @@ public abstract class ImageDictCom extends ImageQuelconque{
     public abstract ImageGrise dupliquer();
 
     @Override
-    public  abstract ImageGrise ajouter(ImageGrise img);
+    public  abstract ImageGrise ajouter(ImageGrise img) throws ImageIncompatiblesException;
 
     @Override
-    public abstract ImageGrise soustraire(ImageGrise img);
+    public abstract ImageGrise soustraire(ImageGrise img) throws ImageIncompatiblesException;
 
     @Override
-    public abstract ImageGrise XOR(ImageGrise img);
+    public abstract ImageGrise XOR(ImageGrise img) throws ImageIncompatiblesException;
 
     @Override
-    public abstract ImageGrise intersection(ImageGrise img);
+    public abstract ImageGrise intersection(ImageGrise img) throws ImageIncompatiblesException;
 
     @Override
     public abstract ImageGrise augmenterContraste();

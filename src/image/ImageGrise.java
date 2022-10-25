@@ -32,18 +32,18 @@ ImageGrise assombrir();
 ImageGrise dupliquer();
 /** Retourne une image en additionnant point par point les niveaux de gris de l'image
  * courante et de l'image en paramètre (les deux images doivent être de même taille) */
-ImageGrise ajouter(ImageGrise img);
+ImageGrise ajouter(ImageGrise img) throws ImageIncompatiblesException;
 /** Retourne une image en retranchant point par point les niveaux de gris de l'image
  * courante et de l'image en paramètre (les deux images doivent être de même taille) */
-ImageGrise soustraire(ImageGrise img);
+ImageGrise soustraire(ImageGrise img) throws ImageIncompatiblesException;
 /** Retourne une image en faisant un OU Exclusif (XOR) point par
  * point les niveaux de gris de l'image courante et de l'image en
  * paramètre (les deux images doivent être de même taille) */
-ImageGrise XOR(ImageGrise img);
+ImageGrise XOR(ImageGrise img) throws ImageIncompatiblesException;
 /** Retourne une image qui représente "l'intersection" de l'image courante et de l'image
  * en paramètre : seuls les points qui ont le même niveau de gris dans les deux images sont
  * conservés (les deux images doivent être de même taille) */
-ImageGrise intersection(ImageGrise img);
+ImageGrise intersection(ImageGrise img) throws ImageIncompatiblesException;
 /** Retourne le niveau de gris moyen de l'image. Pour le calculer, il faut faire la
  * moyenne des niveaux de chaque point de l'image (ce qui revient à compter combien il y
  * a de points de chaque niveau de gris possible) */

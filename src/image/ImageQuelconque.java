@@ -1,6 +1,6 @@
 package image;
 
-public abstract class ImageQuelconque {
+public abstract class ImageQuelconque implements ImageGrise {
 
     protected int largeur, hauteur;
 
@@ -28,9 +28,9 @@ public abstract class ImageQuelconque {
         return hauteur;
     }
 
-    protected abstract NiveauGris pointEn(int x, int y);
+    public abstract NiveauGris pointEn(int x, int y);
 
-    abstract void definirPoint(int x, int y, NiveauGris gris);
+    public abstract void definirPoint(int x, int y, NiveauGris gris);
 
     public void randomize() {
         for (int y=0; y<hauteur(); y++)
@@ -65,13 +65,13 @@ public abstract class ImageQuelconque {
 
     public abstract ImageGrise dupliquer();
 
-    public abstract ImageGrise ajouter(ImageGrise img);
+    public abstract ImageGrise ajouter(ImageGrise img) throws ImageIncompatiblesException;
 
-    public abstract ImageGrise soustraire(ImageGrise img);
+    public abstract ImageGrise soustraire(ImageGrise img) throws ImageIncompatiblesException;
 
-    public abstract ImageGrise XOR(ImageGrise img);
+    public abstract ImageGrise XOR(ImageGrise img) throws ImageIncompatiblesException;
 
-    public abstract ImageGrise intersection(ImageGrise img);
+    public abstract ImageGrise intersection(ImageGrise img) throws ImageIncompatiblesException;
 
     public String toString() {
         String s = largeur + "x" + hauteur;
