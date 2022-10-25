@@ -13,15 +13,10 @@ import dictionnaire.*;
  *  @see image.Point
  *  @see dictionnaire.TabDict
  */
-public class ImageDict extends ImageQuelconque implements ImageGrise {
-        private Dictionnaire points;
+public class ImageDict extends ImageDictCom implements ImageGrise {
 
         public ImageDict(int w, int h) {
         super(w,h);
-}
-
-        protected void initialiserPoints() {
-        points = new TabDict();
 }
 
         public NiveauGris pointEn(int x, int y) {
@@ -46,7 +41,7 @@ public class ImageDict extends ImageQuelconque implements ImageGrise {
                                 result.definirPoint(x, y, this.pointEn(x,y).eclaircir());
                 return result;
         }
-                public ImageGrise inverser() {
+        public ImageGrise inverser() {
                 ImageGrise result = new ImageDict(largeur, hauteur);
                 for (int y=0; y<hauteur; y++)
                         for (int x=0; x<largeur; x++)
