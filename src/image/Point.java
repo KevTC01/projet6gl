@@ -1,6 +1,6 @@
 package image;
 
-import dictionnaire.correction.Couple;
+import dictionnaire.Couple;
 
 /** La classe <code>Point</code> représente un couple de coordonnées
  *  (x, y) dans une image en niveaux de gris. Elle est utilisée pour

@@ -64,10 +64,10 @@ public class ImageTab extends ImageQuelconque implements ImageGrise {
                 return result;
         }
 
-        public ImageGrise ajouter(ImageGrise img) {
+        public ImageGrise ajouter(ImageGrise img) throws ImageIncompatiblesException {
                 ImageGrise result = new ImageTab(largeur, hauteur);
                 if (this.incompatible(img))
-                        return result;
+                        throw new ImageIncompatiblesException("Image incompatible");
                 for (int y=0; y<hauteur; y++)
                         for (int x=0; x<largeur; x++)
                                 result.definirPoint(x, y,
@@ -75,10 +75,10 @@ public class ImageTab extends ImageQuelconque implements ImageGrise {
                 return result;
         }
 
-        public ImageGrise soustraire(ImageGrise img) {
+        public ImageGrise soustraire(ImageGrise img) throws ImageIncompatiblesException {
                 ImageGrise result = new ImageTab(largeur, hauteur);
                 if (this.incompatible(img))
-                        return result;
+                        throw new ImageIncompatiblesException("Image incompatible");
                 for (int y=0; y<hauteur; y++)
                         for (int x=0; x<largeur; x++)
                                 result.definirPoint(x, y,
@@ -86,10 +86,10 @@ public class ImageTab extends ImageQuelconque implements ImageGrise {
                 return result;
         }
 
-        public ImageGrise XOR(ImageGrise img) {
+        public ImageGrise XOR(ImageGrise img) throws ImageIncompatiblesException {
                 ImageGrise result = new ImageTab(largeur, hauteur);
                 if (this.incompatible(img))
-                        return result;
+                        throw new ImageIncompatiblesException("Image incompatible");
                 for (int y=0; y<hauteur; y++)
                         for (int x=0; x<largeur; x++)
                                 result.definirPoint(x, y,
@@ -97,10 +97,10 @@ public class ImageTab extends ImageQuelconque implements ImageGrise {
                 return result;
         }
 
-        public ImageGrise intersection(ImageGrise img) {
+        public ImageGrise intersection(ImageGrise img) throws ImageIncompatiblesException {
                 ImageGrise result = new ImageTab(largeur, hauteur);
                 if (this.incompatible(img))
-                        return result;
+                        throw new ImageIncompatiblesException("Image incompatible");
                 for (int y=0; y<hauteur; y++)
                         for (int x=0; x<largeur; x++)
                                 if (this.pointEn(x,y).equals(img.pointEn(x,y)))
@@ -108,10 +108,10 @@ public class ImageTab extends ImageQuelconque implements ImageGrise {
                 return result;
         }
 
-        public ImageGrise masquer(ImageGrise img) {
+        public ImageGrise masquer(ImageGrise img) throws ImageIncompatiblesException {
                 ImageGrise result = new ImageTab(largeur, hauteur);
                 if (this.incompatible(img))
-                        return result;
+                        throw new ImageIncompatiblesException("Image incompatible");
                 for (int y=0; y<hauteur; y++)
                         for (int x=0; x<largeur; x++)
                                 if (this.pointEn(x,y).equals(img.pointEn(x,y)))
